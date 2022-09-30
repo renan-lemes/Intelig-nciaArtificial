@@ -2,8 +2,8 @@
 ''' 
     Trabalho de Inteligencia Artificial
 
+    Nome : Renan Lemes Leepkaln
 '''
-
 
 
 Estado_fin = [['1', '2', '3'],
@@ -15,6 +15,9 @@ Estado_ini = [['5', '8', '7'],
               ['6', '1', '_']]
 
 n = 0
+
+
+
 
 def SprintEstado(Est, n):
     print('----------------------------------')
@@ -28,7 +31,7 @@ def SprintEstado(Est, n):
 
 SprintEstado(Estado_ini, n)
 
-def funch(Est_i, Est_f):
+def func_h(Est_i, Est_f):
     h = 0
     for i in range(len(Est_i)):
         for j in range(len(Est_i[i])):
@@ -38,8 +41,24 @@ def funch(Est_i, Est_f):
     return h 
 
 def mov(Est, n):
-    pass  
+    n += 1
+    #
+    ''' 3 down
+    temp = Est[1][2]
+    Est[1][2] = Est[2][2]
+    Est[2][2] = temp 
+    
+    '''
 
-print(funch(Estado_ini,Estado_fin))
+    '''
+    temp = Est[2][1]
+    Est[2][1] = Est[2][2]
+    Est[2][2] = temp 
+    '''
 
-#mov(Estado_ini, ,)
+    return Est, n   
+
+#print(func_h(Estado_ini,Estado_fin))
+
+Estado_ini, n = mov(Estado_ini, n)
+SprintEstado(Estado_ini, n)
