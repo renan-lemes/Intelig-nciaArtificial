@@ -6,17 +6,18 @@
 '''
 
 
+from regex import E
+
+
 Estado_fin = [['1', '2', '3'],
                 ['4', '5', '6'], 
                 ['7', '8', '_']]
 
-Estado_ini = [['5', '8', '7'],
-              ['4', '_', '2'], 
+Estado_ini = [['_', '5', '8'],
+              ['7', '4', '2'], 
               ['3', '6', '1']]
 
 n = 0
-
-
 
 
 def SprintEstado(Est, n):
@@ -111,21 +112,108 @@ def mov_6(Est, n):
     return Est, n
 
 def mov_5(Est, n):
-    pass
+    
+    # movimento 1
+    temp = Est[1][2]
+    Est[1][2] = Est[1][1]
+    Est[1][1] = temp 
+    
+    
+    # movimento 2 
+    temp = Est[2][1]
+    Est[2][1] = Est[1][1]
+    Est[1][1] = temp
+    
+    
+    # movimento 3 
+    temp = Est[1][0]
+    Est[1][0] = Est[1][1]
+    Est[1][1] = temp
+    
+
+    # movimento 4 
+    temp = Est[0][1]
+    Est[0][1] = Est[1][1]
+    Est[1][1] = temp
+   
+    return Est, n
+
+
 def mov_4(Est, n):
-    pass
+    
+
+    # movimento 1
+    temp = Est[2][0]
+    Est[2][0] = Est[1][0]
+    Est[1][0] = temp
+    
+    # movimento 2
+    temp  = Est[1][1]
+    Est[1][1] = Est[1][0]
+    Est[1][0] = temp
+    
+    # movimento 3
+    temp = Est[0][0]
+    Est[0][0] = Est[1][0]
+    Est[1][0] = temp
+    
+    return Est, n
+
+
 def mov_3(Est, n):
-    pass
+    
+    # movimento 1
+    temp = Est[1][2]
+    Est[1][2] = Est[0][2]
+    Est[0][2] = temp
+
+    # movimento 2
+    temp = Est[0][1]
+    Est[0][1] = Est[0][2]
+    Est[0][2] = temp
+
+    return Est, n
+
+
 def mov_2(Est, n):
-    pass
+    
+    # movimento 1
+    temp = Est[0][2]
+    Est[0][2] = Est[0][1]
+    Est[0][1] = temp
+
+    
+    # movimento 2
+    temp = Est[1][1]
+    Est[1][1] = Est[0][1]
+    Est[0][1] = temp
+
+
+    # movimento 3
+    temp = Est[0][0]
+    Est[0][0] = Est[0][1]
+    Est[0][1] = temp
+
+    return Est, n
+
 def mov_1(Est, n):
-    pass
+    
+    #movimento 1
+    temp = Est[0][1]
+    Est[0][1] = Est[0][0]
+    Est[0][0] = temp
+
+    # movimento 2
+    temp = Est[1][0]
+    Est[1][0] = Est[0][0]
+    Est[0][0] = temp
+
+    return Est, n
 
 
 def mov(Est, n):
     n += 1
 
-    
     
 
     return Est, n 
