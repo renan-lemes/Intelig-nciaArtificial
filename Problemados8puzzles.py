@@ -13,9 +13,9 @@ Estado_fin = [['1', '2', '3'],
                 ['4', '5', '6'], 
                 ['7', '8', '_']]
 
-Estado_ini = [['_', '5', '8'],
+Estado_ini = [['1', '5', '8'],
               ['7', '4', '2'], 
-              ['3', '6', '1']]
+              ['3', '6', '_']]
 
 n = 0
 
@@ -211,15 +211,39 @@ def mov_1(Est, n):
     return Est, n
 
 
-def mov(Est, n):
+def mov(Est,Est_f ,  n):
     n += 1
 
+
+
+
+    ''' 
+    Est, n = mov_1(Est, n)
+
+    Est, n = mov_2(Est, n)
+
+    Est, n = mov_3(Est, n)
+
+    Est, n = mov_4(Est, n)
+
+    Est, n = mov_5(Est, n)
+
+    Est, n = mov_6(Est, n)
+
+    Est, n = mov_7(Est, n)
+
+    Est, n = mov_8(Est, n)
+
+    Est, n = mov_9(Est, n) 
     
+    '''
+
 
     return Est, n 
       
 
 #print(func_h(Estado_ini,Estado_fin))
 
-Estado_ini, n = mov(Estado_ini, n)
+Estado_ini, n = mov(Estado_ini, Estado_fin, n)
 SprintEstado(Estado_ini, n)
+
