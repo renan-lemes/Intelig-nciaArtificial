@@ -6,16 +6,16 @@
 '''
 
 
-from regex import E
+
 
 
 Estado_fin = [['1', '2', '3'],
-                ['4', '5', '6'], 
-                ['7', '8', '_']]
+              ['4', '_', '5'], 
+              ['6', '7', '8']]
 
 Estado_ini = [['1', '5', '8'],
-              ['7', '4', '2'], 
-              ['3', '6', '_']]
+              ['7', '_', '2'], 
+              ['3', '6', '4']]
 
 n = 0
 
@@ -40,6 +40,12 @@ def func_h(Est_i, Est_f):
                 h += 1
 
     return h 
+
+def Busca_(Est_i):
+    for i in range(len(Est_i)):
+        for j in range(len(Est_i[i])):
+            if Est_i[i][j] == "_":
+                return i, j 
 
 def mov_9(Est, n):
     ''' 
@@ -211,34 +217,34 @@ def mov_1(Est, n):
     return Est, n
 
 
+
+
 def mov(Est,Est_f ,  n):
     n += 1
 
+    _ = (Busca_(Est))
 
 
-
-    ''' 
-    Est, n = mov_1(Est, n)
-
-    Est, n = mov_2(Est, n)
-
-    Est, n = mov_3(Est, n)
-
-    Est, n = mov_4(Est, n)
-
-    Est, n = mov_5(Est, n)
-
-    Est, n = mov_6(Est, n)
-
-    Est, n = mov_7(Est, n)
-
-    Est, n = mov_8(Est, n)
-
-    Est, n = mov_9(Est, n) 
+    if _ == (0, 0):
+        Est, n = mov_1(Est, n)
+    if _ == (0,1):
+        Est, n = mov_2(Est, n)
+    if _ == (0,2):
+        Est, n = mov_3(Est, n)
+    if _ == (1,0):
+        Est, n = mov_4(Est, n)
+    if _ == (1,1):
+        Est, n = mov_5(Est, n)
+    if _ == (1,2):
+        Est, n = mov_6(Est, n)
+    if _ == (2,0):
+        Est, n = mov_7(Est, n)
+    if _ == (2, 1):
+        Est, n = mov_8(Est, n)
+    if _ == (2, 2):
+        Est, n = mov_9(Est, n) 
     
-    '''
-
-
+    
     return Est, n 
       
 
