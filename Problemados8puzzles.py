@@ -6,16 +6,13 @@
 '''
 
 
-
-
-
 Estado_fin = [['1', '2', '3'],
               ['4', '_', '5'], 
               ['6', '7', '8']]
 
-Estado_ini = [['1', '5', '8'],
-              ['7', '_', '2'], 
-              ['3', '6', '4']]
+Estado_ini = [['1', '2', '3'],
+              ['7', '_', '5'], 
+              ['8', '6', '4']]
 
 n = 0
 
@@ -46,6 +43,12 @@ def Busca_(Est_i):
         for j in range(len(Est_i[i])):
             if Est_i[i][j] == "_":
                 return i, j 
+
+def Verifica_estado(Est_i, Est_f):
+    for i in range(len(Est_f)):
+        for j in range(len(Est_f[i])):
+            if Est_f[i][j] != Est_i[i][j]:
+                return i,j
 
 def mov_9(Est, n):
     ''' 
@@ -223,8 +226,9 @@ def mov(Est,Est_f ,  n):
     n += 1
 
     _ = (Busca_(Est))
-
-
+    v = Verifica_estado(Est, Est_f)
+    
+    ''' 
     if _ == (0, 0):
         Est, n = mov_1(Est, n)
     if _ == (0,1):
@@ -242,7 +246,8 @@ def mov(Est,Est_f ,  n):
     if _ == (2, 1):
         Est, n = mov_8(Est, n)
     if _ == (2, 2):
-        Est, n = mov_9(Est, n) 
+        Est, n = mov_9(Est, n)  
+    '''
     
     
     return Est, n 
